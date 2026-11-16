@@ -1210,17 +1210,4 @@ window.changeBoxPage=changeBoxPage;window.buyPokeball=buyPokeball;applyLanguage(
  document.addEventListener('selectstart',function(e){if(!e.target.closest('input,textarea,select,[contenteditable="true"],.capture-log-entry'))e.preventDefault()});
  document.querySelectorAll('img,svg,canvas').forEach(el=>{el.draggable=false;el.addEventListener('dragstart',e=>e.preventDefault())});
 })();
-</script><style id="pokezone-capture-zone-visibility-fix">
-/* Hard restore of the main capture arena: never hide its grid or battle panel. */
-#page-adventure{display:block!important;visibility:visible!important;opacity:1!important}
-#page-adventure>.grid{display:grid!important;visibility:visible!important;opacity:1!important;grid-template-columns:minmax(0,1.2fr) minmax(250px,.8fr)!important;gap:12px!important}
-#page-adventure>.grid>.panel.battle{display:flex!important;visibility:visible!important;opacity:1!important;position:relative!important;flex-direction:column!important;gap:8px!important;min-width:0!important;min-height:380px!important;height:auto!important;overflow:visible!important}
-#page-adventure .battle .battle-head{display:flex!important;visibility:visible!important;min-height:24px!important}
-#page-adventure .battle .enemy{display:flex!important;visibility:visible!important;opacity:1!important;position:relative!important;align-items:flex-end!important;justify-content:center!important;gap:clamp(12px,3vw,34px)!important;width:100%!important;height:220px!important;min-height:220px!important;flex:0 0 220px!important;overflow:visible!important}
-#page-adventure .battle .enemy #enemy-sprite{display:block!important;visibility:visible!important;opacity:1!important;width:190px!important;height:190px!important;max-width:100%!important;object-fit:contain!important;flex:0 1 auto!important}
-#page-adventure .battle .enemy-info{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;min-height:54px!important}
-#page-adventure .battle #battle-team{display:flex!important;visibility:visible!important;opacity:1!important;min-height:88px!important;height:auto!important;flex-wrap:wrap!important}
-#page-adventure .battle .battle-footer{display:flex!important;visibility:visible!important;height:auto!important;min-height:28px!important;overflow:visible!important}
-#page-adventure>.grid>.panel:not(.battle){display:flex!important;visibility:visible!important;opacity:1!important;flex-direction:column!important;min-width:0!important}
-@media(max-width:850px){#page-adventure>.grid{grid-template-columns:minmax(0,1fr)!important}#page-adventure>.grid>.panel.battle{min-height:340px!important}#page-adventure .battle .enemy{height:180px!important;min-height:180px!important;flex-basis:180px!important}#page-adventure .battle .enemy #enemy-sprite{width:155px!important;height:155px!important}}
-</style></body></html>
+</script></body></html>
