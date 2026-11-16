@@ -697,39 +697,39 @@ let pzUser=null,pzSaveTimer=null,pzSyncBusy=false;
 const pzMsg=t=>{const e=document.getElementById('pz-auth-msg');if(e)e.textContent=t};
 async function pzFinishSession(session){
  if(!session?.user)return;
- pzUser=session.user;pzMsg('Cargando tu partida…');
+ pzUser=session.user;pzMsg('Loading your save…');
  const {data,error}=await pzClient.from('player_saves').select('save_data').eq('user_id',pzUser.id).maybeSingle();
- if(error){pzMsg('La cuenta funciona, pero falta configurar la tabla de guardado en Supabase. Ejecuta el SQL que te indicaré y vuelve a iniciar sesión.');console.error(error);return}
+ if(error){pzMsg('Your account connected, but cloud save could not be read. Please check your Supabase table permissions.');console.error(error);return}
  if(data?.save_data){localStorage.setItem('pokezone-save',JSON.stringify(data.save_data))}
  else{
   let local={};try{local=JSON.parse(localStorage.getItem('pokezone-save')||'{}')}catch(e){}
   const {error:upErr}=await pzClient.from('player_saves').upsert({user_id:pzUser.id,save_data:local,updated_at:new Date().toISOString()},{onConflict:'user_id'});
-  if(upErr){pzMsg('No se pudo crear tu primera partida: '+upErr.message);return}
+  if(upErr){pzMsg('Could not create your first save: '+upErr.message);return}
  }
  const gate=document.getElementById('pz-auth-gate');if(gate)gate.remove();
- const status=document.getElementById('save-status');if(status)status.textContent='Cuenta conectada · guardado en la nube';
+ const status=document.getElementById('save-status');if(status)status.textContent='Account connected · cloud save enabled';
  pzResolve();
 }
 async function pzAuthInit(){
  const {data,error}=await pzClient.auth.getSession();
  if(error){pzMsg('Error de conexión: '+error.message);return}
  if(data.session){await pzFinishSession(data.session);return}
- pzMsg('Inicia sesión para entrar. Tu partida se guardará en tu cuenta.');
+ pzMsg('Sign in to continue. Your progress will be saved to your account.');
 }
 document.addEventListener('DOMContentLoaded',()=>{
  document.getElementById('pz-auth-form').addEventListener('submit',async e=>{
   e.preventDefault();const email=document.getElementById('pz-auth-email').value.trim(),password=document.getElementById('pz-auth-password').value;
-  const b=document.getElementById('pz-login');b.disabled=true;pzMsg('Iniciando sesión…');
+  const b=document.getElementById('pz-login');b.disabled=true;pzMsg('Signing in…');
   const {data,error}=await pzClient.auth.signInWithPassword({email,password});b.disabled=false;
   if(error){pzMsg(error.message);return}await pzFinishSession(data.session);
  });
  document.getElementById('pz-register').addEventListener('click',async()=>{
   const email=document.getElementById('pz-auth-email').value.trim(),password=document.getElementById('pz-auth-password').value;
-  if(!email||password.length<6){pzMsg('Escribe un correo y una contraseña de al menos 6 caracteres.');return}
-  const b=document.getElementById('pz-register');b.disabled=true;pzMsg('Creando cuenta…');
+  if(!email||password.length<6){pzMsg('Enter an email and a password with at least 6 characters.');return}
+  const b=document.getElementById('pz-register');b.disabled=true;pzMsg('Creating account…');
   const {data,error}=await pzClient.auth.signUp({email,password});b.disabled=false;
   if(error){pzMsg(error.message);return}
-  if(data.session)await pzFinishSession(data.session);else pzMsg('Cuenta creada. Revisa tu correo para confirmar la dirección y después inicia sesión.');
+  if(data.session)await pzFinishSession(data.session);else pzMsg('Account created. Check your email to confirm your address, then sign in.');
  });
  pzAuthInit();
 });
@@ -740,7 +740,7 @@ window.pzCloudSave=(state)=>{
   if(pzSyncBusy)return;pzSyncBusy=true;
   const {error}=await pzClient.from('player_saves').upsert({user_id:pzUser.id,save_data:snapshot,updated_at:new Date().toISOString()},{onConflict:'user_id'});
   pzSyncBusy=false;const s=document.getElementById('save-status');
-  if(s)s.textContent=error?'Error al sincronizar · '+error.message:'Cuenta conectada · guardado en la nube';
+  if(s)s.textContent=error?'Sync error · '+error.message:'Account connected · cloud save enabled';
  },1200);
 };
 </script>
@@ -789,7 +789,7 @@ const getPoke=async id=>{if(pokemonCache[id])return pokemonCache[id];let r=await
 const name=id=>pokemonCache[id]?.name||'Pokémon #'+id;
 const log=(txt,where='battle-log')=>{let el=$(where);let d=document.createElement('div');d.textContent=txt;el.prepend(d);while(el.children.length>24)el.lastChild.remove()};
 function notify(message,type='info'){const host=$('pz-notifications');if(!host){console.info(message);return}const item=document.createElement('div');item.className='pz-toast '+type;item.textContent=String(message);host.appendChild(item);requestAnimationFrame(()=>item.classList.add('show'));setTimeout(()=>{item.classList.remove('show');setTimeout(()=>item.remove(),260)},3600)}
-const save=()=>{state.last=Date.now();localStorage.setItem('pokezone-save',JSON.stringify(state));$('save-status').textContent='Guardando en la nube…';if(window.pzCloudSave)window.pzCloudSave(state);};
+const save=()=>{state.last=Date.now();localStorage.setItem('pokezone-save',JSON.stringify(state));$('save-status').textContent='Saving to cloud…';if(window.pzCloudSave)window.pzCloudSave(state);};
 const load=()=>{try{let s=JSON.parse(localStorage.getItem('pokezone-save'));if(s)state={...state,...s};}catch(e){}};
 const has=id=>state.dex.includes(id);
 const owned=()=>[...state.team,...state.box];
@@ -816,7 +816,7 @@ function setBoxSearch(value){boxSearch=String(value||'').trim().toLowerCase();bo
 function setBoxRegion(value){boxRegion=String(value||'all');boxPage=0;renderBoxes()}
 function changeBoxPage(page){boxPage=Math.max(0,Math.min(Math.ceil(getFilteredBoxes().length/30)-1,page));renderBoxes()}
 function getFilteredBoxes(){return state.box.filter(m=>{const region=regions.findIndex(r=>m.id>=r.start&&m.id<=r.end);const matchesRegion=boxRegion==='all'||region===Number(boxRegion);const matchesText=!boxSearch||String(m.name||'').toLowerCase().includes(boxSearch)||String(m.id).includes(boxSearch)||String(m.level).includes(boxSearch)||(m.shiny&&'shiny'.includes(boxSearch));return matchesRegion&&matchesText})}
-function askDeleteBoxMon(uid){const mon=state.box.find(x=>x.uid===uid);if(!mon)return;pendingBoxDelete=uid;$('delete-title').textContent=state.language==='en'?'DELETE POKÉMON?':'¿ELIMINAR POKÉMON?';$('delete-description').textContent=state.language==='en'?'This Pokémon will be permanently removed from your boxes.':'Este Pokémon se eliminará permanentemente de tus cajas.';$('delete-preview').innerHTML='<div class="delete-preview"><img src="'+sprite(mon.id,mon.shiny)+'"><b>'+(mon.shiny?'★ ':'')+mon.name+' · Lv. '+mon.level+'</b></div>';$('box-delete-modal').style.display='grid'}
+function askDeleteBoxMon(uid){const mon=state.box.find(x=>x.uid===uid);if(!mon)return;pendingBoxDelete=uid;$('delete-title').textContent='DELETE POKÉMON?';$('delete-description').textContent='This Pokémon will be permanently removed from your boxes.';$('delete-preview').innerHTML='<div class="delete-preview"><img src="'+sprite(mon.id,mon.shiny)+'"><b>'+(mon.shiny?'★ ':'')+mon.name+' · Lv. '+mon.level+'</b></div>';$('box-delete-modal').style.display='grid'}
 function cancelBoxDelete(){$('box-delete-modal').style.display='none';pendingBoxDelete=null}
 function confirmBoxDelete(){if(pendingBoxDelete===null)return;const i=state.box.findIndex(x=>x.uid===pendingBoxDelete);if(i>=0){const removed=state.box.splice(i,1)[0];notify(removed.name+' deleted permanently.','success')}cancelBoxDelete();render();save()}
 function renderBoxes(){const filtered=getFilteredBoxes();const total=filtered.length;const counter=$('box-total');if(counter)counter.textContent=total+'/'+state.box.length+' / 10000';const pages=Math.max(1,Math.ceil(total/30));boxPage=Math.min(boxPage,pages-1);const start=boxPage*30;const visible=filtered.slice(start,start+30);$('box-list').innerHTML=visible.map(m=>'<div class="card box-mon"><img src="'+sprite(m.id,m.shiny)+'" alt="'+m.name+'"><h4>'+(m.shiny?'★ ':'')+m.name+'</h4><p>Lv. '+m.level+'</p><div class="box-actions"><button class="tiny send-team" onclick="moveMon('+m.uid+',\'box\',\'team\')">Team</button><button class="tiny danger" onclick="askDeleteBoxMon('+m.uid+')">Delete</button></div></div>').join('')||'<div class="empty">No Pokémon match your filters.</div>';const nav=$('box-pagination');if(nav)nav.innerHTML='<button class="tiny" '+(boxPage===0?'disabled':'')+' onclick="changeBoxPage('+(boxPage-1)+')">◀ Prev</button><span class="tag">Page '+(boxPage+1)+' / '+pages+' · '+total+'/10000 Pokémon</span><button class="tiny" '+(boxPage>=pages-1?'disabled':'')+' onclick="changeBoxPage('+(boxPage+1)+')">Next ▶</button>';const dedupe=$('box-dedupe-toggle');if(dedupe)dedupe.checked=state.dedupeOwned!==false}
@@ -830,11 +830,11 @@ function renderCaptureFilters(){const types=['normal','fire','water','electric',
 const captureStageCache={};
 async function getCaptureStage(id){if(captureStageCache[id])return captureStageCache[id];try{const sp=await fetch('https://pokeapi.co/api/v2/pokemon-species/'+id).then(r=>r.json());if(sp.is_legendary||sp.is_mythical)return captureStageCache[id]='legendary';if(!sp.evolution_chain?.url)return captureStageCache[id]='basic';const chain=await fetch(sp.evolution_chain.url).then(r=>r.json());let depth=-1;function walk(node,d){if(node.species.name===sp.name)depth=d;for(const child of node.evolves_to||[])walk(child,d+1)}walk(chain.chain,0);return captureStageCache[id]=depth<=0?'basic':depth===1?'phase1':'phase2'}catch(e){return 'basic'}}
 const uiText={en:{'Aventura':'Adventure','Equipo':'Team','Cajas':'Boxes','Pokédex':'Pokédex','Regiones':'Regions','Gimnasios':'Gyms','Tienda':'Shop','Investigación':'Research','POKÉSPAWN IDLE':'POKÉSPAWN IDLE','Tu aventura continúa mientras exploras. Derrota Pokémon salvajes e intenta capturarlos.':'Explore, battle and catch Pokémon.','POKÉMON CAPTURADOS':'POKÉMON CAUGHT','NIVEL DEL EQUIPO':'TEAM LEVEL','VICTORIAS':'WINS','Tu equipo activo':'Your Team','Últimos descubrimientos':'Recent Discoveries','Registro de aventura':'Adventure Log','Filtro automático de captura':'Auto-Capture Filter','Selecciona los tipos que quieres capturar automáticamente. Si no marcas ninguno, se intentarán capturar todos los tipos.':'Choose which types to auto-catch. Leave empty to catch every type.','Capturar todos':'Catch All','Gestión del equipo':'Team Management','Selecciona hasta seis Pokémon para combatir. Los cambios se guardan automáticamente.':'Choose up to six Pokémon for your team.','Sistema de cajas':'Pokémon Storage','Explorar regiones':'Explore Regions','Liga y gimnasios':'Gyms','Tienda Pokémon':'Pokémon Shop','Centro de investigación':'Research Center','¡Tu aventura comienza aquí!':'Your adventure starts here!','Explora regiones, descubre Pokémon y construye el equipo definitivo.':'Explore regions, discover Pokémon and build your ultimate team.','Combate automático':'Battle','Tu equipo está luchando...':'Your team is battling...','Pausar':'Pause','Reanudar':'Resume','Enviar a caja':'Send to Boxes','Al equipo':'Add to Team','No tienes Pokémon en tu equipo.':'Your team is empty.','Al equipo':'Add to Team','Enviar a caja':'Send to Boxes','Página ':'Page ','Pokémon capturados':'Pokémon caught','Explorando':'Exploring','Pokémon salvajes':'Wild Pokémon','Elige tu primer Pokémon.':'Choose your first Pokémon.','Todos los tipos':'All types','Pokémon desconocido':'Unknown Pokémon','Región inicial':'Starting Region','Desbloqueada':'Unlocked','Explorando':'Exploring','Explorar':'Travel','Anterior':'Prev','Siguiente':'Next','Buscar Pokémon...':'Search Pokémon...'},es:{}};
-function applyLanguage(){state.language='en';const lang='en';document.documentElement.lang=lang;const dict=uiText[lang];const reverse=lang==='es'?Object.fromEntries(Object.entries(uiText.en).map(([a,b])=>[b,a])):dict;const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;while(node=walker.nextNode()){if(!node.nodeValue.trim())continue;let value=node.nodeValue.trim();if(dict[value])node.nodeValue=node.nodeValue.replace(value,dict[value]);else if(reverse[value])node.nodeValue=node.nodeValue.replace(value,reverse[value]);}const placeholders=lang==='en'?{'dex-search':'Search Pokémon...','box-search':'Search Pokémon by name or number...'}:{'dex-search':'Buscar Pokémon...','box-search':'Buscar Pokémon por nombre o número...'};for(const [id,v] of Object.entries(placeholders)){const el=$(id);if(el)el.placeholder=v}const labels=document.querySelectorAll('.nav');const nav={adventure:['Adventure','Aventura'],team:['Team','Equipo'],boxes:['Boxes','Cajas'],dex:['Pokédex','Pokédex'],regions:['Regions','Regiones'],gyms:['Gyms','Gimnasios'],shop:['Shop','Tienda'],research:['Research','Investigación'],settings:['Settings','Ajustes']};labels.forEach(b=>{const pair=nav[b.dataset.page];if(!pair)return;[...b.childNodes].filter(n=>n.nodeType===3).forEach(n=>n.remove());let label=b.querySelector('.nav-label');if(!label){label=document.createElement('span');label.className='nav-label';b.appendChild(label)}label.textContent=pair[lang==='es'?1:0]});const search=$('box-search');if(search)search.placeholder=placeholders['box-search'];const total=$('box-total');if(total)total.textContent=state.box.length+'/10000';}
+function applyLanguage(){state.language='en';const lang='en';document.documentElement.lang=lang;const dict=uiText[lang];const reverse=lang==='es'?Object.fromEntries(Object.entries(uiText.en).map(([a,b])=>[b,a])):dict;const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;while(node=walker.nextNode()){if(!node.nodeValue.trim())continue;let value=node.nodeValue.trim();if(dict[value])node.nodeValue=node.nodeValue.replace(value,dict[value]);else if(reverse[value])node.nodeValue=node.nodeValue.replace(value,reverse[value]);}const placeholders=lang==='en'?{'dex-search':'Search Pokémon...','box-search':'Search Pokémon by name or number...'}:{'dex-search':'Buscar Pokémon...','box-search':'Buscar Pokémon por nombre o número...'};for(const [id,v] of Object.entries(placeholders)){const el=$(id);if(el)el.placeholder=v}const labels=document.querySelectorAll('.nav');const nav={adventure:['Adventure','Aventura'],team:['Team','Equipo'],boxes:['Boxes','Cajas'],dex:['Pokédex','Pokédex'],regions:['Regions','Regiones'],gyms:['Gyms','Gimnasios'],shop:['Shop','Tienda'],research:['Research','Investigación'],settings:['Settings','Settings']};labels.forEach(b=>{const pair=nav[b.dataset.page];if(!pair)return;[...b.childNodes].filter(n=>n.nodeType===3).forEach(n=>n.remove());let label=b.querySelector('.nav-label');if(!label){label=document.createElement('span');label.className='nav-label';b.appendChild(label)}label.textContent=pair[lang==='es'?1:0]});const search=$('box-search');if(search)search.placeholder=placeholders['box-search'];const total=$('box-total');if(total)total.textContent=state.box.length+'/10000';}
 function applyTheme(){const theme=state.settings?.theme==='dark'?'dark':'light';document.documentElement.dataset.theme=theme;const select=$('theme-select');if(select)select.value=theme;}
 function setTheme(theme){if(!['dark','light'].includes(theme))return;state.settings=state.settings||{};state.settings.theme=theme;state.settings.appearanceModeChosen=true;applyTheme();save();notify('Appearance updated.','success')}
-function setLanguage(lang){state.language=lang==='es'?'es':'en';applyLanguage();save()}
-function render(){renderBattleTeam();$('coins').textContent=Math.floor(state.coins).toLocaleString('es-ES');$('research').textContent=state.research;$('stat-caught').textContent=owned().length;$('stat-level').textContent=totalLevel();$('stat-kills').textContent=state.kills;$('region-label').textContent=' '+regions[state.region].name+' · Zona '+(state.kills+1);$('team-count').textContent='('+state.team.length+'/6)';
+function setLanguage(){state.language='en';applyLanguage();save()}
+function render(){renderBattleTeam();$('coins').textContent=Math.floor(state.coins).toLocaleString('en-US');$('research').textContent=state.research;$('stat-caught').textContent=owned().length;$('stat-level').textContent=totalLevel();$('stat-kills').textContent=state.kills;$('region-label').textContent=' '+regions[state.region].name+' · Area '+(state.kills+1);$('team-count').textContent='('+state.team.length+'/6)';
 $('mini-team').innerHTML=state.team.length?state.team.map(m=>'<div class="mon"><img src="'+sprite(m.id,m.shiny)+'"><div class="mon-info"><strong>'+(m.shiny?' ':'')+m.name+'</strong><small>Nivel '+m.level+' · '+(m.moves[0]||'')+'</small><div class="bar"><i style="width:'+Math.min(100,(m.xp||0)/xpNeed(m.level)*100)+'%"></i></div></div></div>').join(''):'<div class="empty">Elige tu primer Pokémon.</div>';
 $('full-team').innerHTML=state.team.map(m=>renderMon(m,'<button class="tiny" onclick="moveMon('+m.uid+',\'team\',\'box\')">Enviar a caja</button>')).join('')||'<div class="empty">No tienes Pokémon en tu equipo.</div>';
 renderBoxes();
