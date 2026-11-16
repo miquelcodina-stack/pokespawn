@@ -110,7 +110,13 @@ img{image-rendering:pixelated!important;object-fit:contain}
 :root[data-theme="light"] .top{background:#f7faffed}
 :root[data-theme="light"] .nav{color:#30445b}
 :root[data-theme="light"] .panel,:root[data-theme="light"] .stat,:root[data-theme="light"] .card{box-shadow:0 2px 8px #253d5512}
-.shop-cost{font-weight:800;color:var(--yellow);font-size:12px}</style><style id="pokespawn-responsive-classic-ui">
+.shop-cost{font-weight:800;color:var(--yellow);font-size:12px}
+/* Capture-area Pokémon sprites: +25% without changing sprites elsewhere. */
+#page-adventure .enemy img:not(#gym-trainer-sprite){width:150px!important;height:150px!important}
+#page-adventure .battle-ally{width:58px!important}
+#page-adventure .battle-ally img{width:49px!important;height:49px!important}
+@media(max-width:760px){#page-adventure .enemy img:not(#gym-trainer-sprite){width:95px!important;height:95px!important}#page-adventure .battle-ally{width:52px!important}#page-adventure .battle-ally img{width:43px!important;height:43px!important}}
+</style><style id="pokespawn-responsive-classic-ui">
 /* POKESPAWN IDLE — RESPONSIVE CLASSIC POKÉMON UI */
 :root{
  --bg:#d7e5d8;--panel:#f7f1d9;--panel2:#e8edda;--line:#334f5b;
