@@ -1146,9 +1146,11 @@ function applyLanguage(){
  const total=$('box-total');if(total)total.textContent=state.box.length+'/4100';
  if(!window.pzEnglishObserver){
   window.pzEnglishObserver=new MutationObserver(records=>records.forEach(record=>{
-   record.addedNodes.forEach(node=>{if(node.nodeType===Node.TEXT_NODE){let v=node.nodeValue;for(const [a,b] of Object.entries(dict).sort((x,y)=>y[0].length-x[0].length))if(a&&b&&a!==b)v=v.split(a).join(b);node.nodeValue=v;}else if(node.nodeType===Node.ELEMENT_NODE)translateText(node);});
+   const translateNode=node=>{if(!node||node.nodeType!==Node.TEXT_NODE)return;let v=node.nodeValue;for(const [a,b] of Object.entries(dict).sort((x,y)=>y[0].length-x[0].length))if(a&&b&&a!==b)v=v.split(a).join(b);if(v!==node.nodeValue)node.nodeValue=v;};
+   if(record.type==='characterData')translateNode(record.target);
+   record.addedNodes.forEach(node=>{if(node.nodeType===Node.TEXT_NODE)translateNode(node);else if(node.nodeType===Node.ELEMENT_NODE)translateText(node);});
   }));
-  window.pzEnglishObserver.observe(document.body,{subtree:true,childList:true});
+  window.pzEnglishObserver.observe(document.body,{subtree:true,childList:true,characterData:true});
  }
 }
 function applyTheme(){
