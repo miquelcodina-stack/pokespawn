@@ -842,6 +842,23 @@ body :is(h1,h2,h3,h4,h5,h6,p,span,strong,small,label,a,li,em,b,i,dt,dd,legend,fi
  right:clamp(8px,1.2vw,18px)!important;left:auto!important;
  z-index:41000!important;
 }
+
+/* Keep button hover states in the same red diagonal-stripe arcade style. */
+button:hover,button:focus,
+.tiny:hover,.tiny:focus,
+.primary:hover,.primary:focus,
+.btn:hover,.btn:focus,
+.shop-buy:hover,.shop-buy:focus,
+.tab:hover,.tab:focus,
+.nav:hover,.nav:focus{
+ color:#fff!important;
+ background:repeating-linear-gradient(135deg,#e52b43 0 11px,#c91631 11px 22px)!important;
+ border-color:#b20f29!important;
+ box-shadow:0 3px 0 #a80f28,0 6px 13px rgba(170,15,40,.14)!important;
+ filter:none!important;
+ transform:none!important;
+ outline:none!important;
+}
 </style>
 </head>
 <body><style>
