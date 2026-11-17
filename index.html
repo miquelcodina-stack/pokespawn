@@ -876,7 +876,7 @@ button:hover,button:focus,
 <form id="pz-auth-form"><input id="pz-auth-email" type="email" autocomplete="email" placeholder="Correo electrónico" required><input id="pz-auth-password" type="password" autocomplete="current-password" minlength="6" placeholder="Contraseña (mínimo 6 caracteres)" required><button id="pz-login" type="submit">Iniciar sesión</button></form>
 <button class="alt" id="pz-register" type="button">Crear cuenta</button><div id="pz-auth-msg" role="status">Conectando con el servidor seguro…</div>
 </div></div>
-<header class="top"><div class="brand"><div class="logo"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Poké Ball"></div><div><h1 class="pixel">POKÉSPAWN IDLE <small id="app-version" class="app-version">v1.0.5</small></h1></div></div><div class="top-actions"><button class="top-action" type="button" data-social-page="friends" aria-label="Friends" title="Friends"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" alt="Friends"><span>Friends</span></button><button class="top-action" type="button" data-social-page="profile" aria-label="Profile" title="Profile"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/silph-scope.png" alt="Profile"><span>Profile</span></button></div><div class="resources"><div class="resource"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" alt=""> <span id="coins">0</span></div><div class="resource"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/exp-share.png" alt=""> <span id="research">0</span></div><div class="resource"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Poké Ball"> <span id="balls">∞</span></div></div></header>
+<header class="top"><div class="brand"><div class="logo"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Poké Ball"></div><div><h1 class="pixel">POKÉSPAWN IDLE <small id="app-version" class="app-version">v1.0.6</small></h1></div></div><div class="top-actions"><button class="top-action" type="button" data-social-page="friends" aria-label="Friends" title="Friends"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/vs-seeker.png" alt="Friends"><span>Friends</span></button><button class="top-action" type="button" data-social-page="profile" aria-label="Profile" title="Profile"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/silph-scope.png" alt="Profile"><span>Profile</span></button></div><div class="resources"><div class="resource"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" alt=""> <span id="coins">0</span></div><div class="resource"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/exp-share.png" alt=""> <span id="research">0</span></div><div class="resource"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Poké Ball"> <span id="balls">∞</span></div></div></header>
 <div class="layout"><aside class="side">
 <button class="nav active" data-page="adventure" type="button" aria-label="Adventure" title="Adventure"><img class="asset-icon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/bicycle.png" alt="Adventure" title="Adventure"></button><button class="nav" data-page="team" type="button" aria-label="Team" title="Team"><img class="asset-icon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/friend-ball.png" alt="Team" title="Team"></button><button class="nav" data-page="boxes" type="button" aria-label="Boxes" title="Boxes"><img class="asset-icon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/apricorn-box.png" alt="Boxes" title="Boxes"></button><button class="nav" data-page="pokedex" type="button" aria-label="Pokédex" title="Pokédex"><img class="asset-icon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/data-card.png" alt="Pokédex" title="Pokédex"></button><button class="nav" data-page="regions" type="button" aria-label="Regions" title="Regions"><img class="asset-icon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/eon-ticket.png" alt="Regions" title="Regions"></button><button class="nav" data-page="gym" type="button" aria-label="Gyms" title="Gyms"><img class="asset-icon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/contest-pass.png" alt="Gyms" title="Gyms"></button><button class="nav" data-page="shop" type="button" aria-label="Shop" title="Shop"><img class="asset-icon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/amulet-coin.png" alt="Shop" title="Shop"></button><button class="nav" data-page="research" type="button" aria-label="Research" title="Research"><img class="asset-icon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/exp-share.png" alt="Research" title="Research"></button><button class="nav" data-page="settings" type="button" aria-label="Settings" title="Settings"><img class="asset-icon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dowsing-machine.png" alt="Settings" title="Settings"></button><div class="side-note"><b style="color:var(--yellow)">POKÉSPAWN IDLE</b><br>Your adventure continues as you explore. Defeat wild Pokémon and try to catch them.<br><br><span id="save-status">● Local save</span></div></aside>
 <main class="main">
@@ -1526,7 +1526,7 @@ button.send-team:hover,button.send-team:focus-visible {
 </style>
 
 
-<style id="pokespawn-v105-unified-rounded-typography-and-team-replace">
+<style id="pokespawn-v106-red-team-replace-buttons">
 /* v1.0.5: one clean rounded typeface throughout the whole interface. */
 *,*::before,*::after{
   font-family:'Nunito',ui-rounded,system-ui,sans-serif!important;
@@ -1662,4 +1662,27 @@ button.send-team:hover,button.send-team:focus-visible {
 #page-friends .friend-row-actions button{min-width:62px}
 @media(max-width:850px){.top{flex-wrap:wrap!important}.top .brand{flex:1 1 auto}.top-actions{order:2;margin-left:auto}.top .resources{order:3;width:100%;justify-content:flex-end}.top-actions .top-action{min-width:44px!important;padding:5px!important}.top-actions .top-action span{display:none!important}}
 @media(max-width:480px){.top-actions .top-action img{width:24px!important;height:24px!important}.top-actions{gap:5px}.top .brand h1{font-size:clamp(17px,5vw,23px)!important}}
+</style>
+<style id="pokespawn-v106-red-team-replace-buttons">
+/* v1.0.6: make every Pokémon replacement choice a clear red button with white text. */
+#team-replace-modal .replace-option{
+  background:#d92d36!important;
+  border:2px solid #a91e29!important;
+  box-shadow:3px 3px 0 #74151d!important;
+  color:#fff!important;
+}
+#team-replace-modal .replace-option span{
+  background:transparent!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+#team-replace-modal .replace-option:hover{
+  background:#c5222c!important;
+  border-color:#8f1822!important;
+  color:#fff!important;
+}
+#team-replace-modal .replace-option:focus-visible{
+  outline:3px solid #ffd65a!important;
+  outline-offset:3px!important;
+}
 </style>
