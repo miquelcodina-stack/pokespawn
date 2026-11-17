@@ -563,7 +563,7 @@ label,.muted,small,.footer{color:var(--muted)!important}
 #capture-types input{accent-color:#d71932!important}
 #battle-status{color:#8f1025!important;font-weight:800!important}
 #battle-log,#recent{color:#51232b!important}
-#battle-team{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;align-items:end!important;justify-items:center!important;gap:12px!important;width:100%!important;min-height:170px!important;height:auto!important;flex:0 0 auto!important;padding:12px 8px 8px!important;margin:8px 0!important;overflow:visible!important;position:relative!important;z-index:5!important;background:repeating-linear-gradient(135deg,#fff8f8 0 13px,#fff 13px 26px)!important;border:1px solid #f0c4c9!important;border-radius:14px!important}
+#battle-team{background:transparent!important;background-image:none!important;border:0!important;box-shadow:none!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;align-items:end!important;justify-items:center!important;gap:12px!important;width:100%!important;min-height:170px!important;height:auto!important;flex:0 0 auto!important;padding:12px 8px 8px!important;margin:8px 0!important;overflow:visible!important;position:relative!important;z-index:5!important;background:repeating-linear-gradient(135deg,#fff8f8 0 13px,#fff 13px 26px)!important;border:1px solid #f0c4c9!important;border-radius:14px!important}
 #battle-team .battle-ally{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important;width:100%!important;min-width:0!important;min-height:145px!important;position:relative!important;transform:none!important;z-index:6!important}
 #battle-team .battle-ally img,#battle-team .battle-ally .battle-ally-sprite{display:block!important;visibility:visible!important;opacity:1!important;width:clamp(100px,10vw,142px)!important;height:clamp(100px,10vw,142px)!important;max-width:100%!important;object-fit:contain!important;image-rendering:auto!important;filter:drop-shadow(0 8px 5px rgba(75,15,25,.2))!important;position:relative!important;z-index:7!important}
 #battle-team .battle-ally small{display:block!important;max-width:100%!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;color:#8f1025!important;background:#fff!important;border:1px solid #efc1c6!important;border-radius:999px!important;padding:4px 8px!important;font-size:clamp(9px,.75vw,11px)!important;font-weight:800!important;text-shadow:none!important}
@@ -768,29 +768,7 @@ body{background-image:none!important;background-color:var(--bg)!important}
 #page-adventure #recent,#page-adventure #battle-log,#page-adventure .grid:has(#recent),#page-adventure .panel:has(#battle-log){display:none!important}
 #pz-notifications{position:fixed!important;top:18px!important;right:18px!important;bottom:auto!important;left:auto!important;z-index:41000!important;display:flex!important;flex-direction:column!important;gap:8px!important;pointer-events:none!important;width:min(340px,calc(100vw - 36px))!important}
 #pz-notifications .pz-toast{pointer-events:auto!important}
-</style><style id="pokespawn-final-theme-boxes">
-.tag,.stage,.status,.shop-cost,.region-pill,.gym-trainer strong{background:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding-left:0!important;padding-right:0!important}
-:root[data-theme="dark"]{--bg:#080808!important;--panel:#111!important;--panel2:#191919!important;--line:#303030!important;--text:#f2f2f2!important;--muted:#aaa!important;--yellow:#ffca65!important;--green:#65d69a!important;--blue:#8bbcff!important;--red:#ff6874!important;--purple:#c5a2ff!important}
-:root[data-theme="dark"] html,:root[data-theme="dark"] body{background:#080808!important;background-image:none!important;color:#f2f2f2!important}
-:root[data-theme="dark"] .top,:root[data-theme="dark"] .side,:root[data-theme="dark"] .side-note,:root[data-theme="dark"] .panel,:root[data-theme="dark"] .stat,:root[data-theme="dark"] .card,:root[data-theme="dark"] .setting-card,:root[data-theme="dark"] .modal-box,:root[data-theme="dark"] .hero,:root[data-theme="dark"] .resource,:root[data-theme="dark"] .mon,:root[data-theme="dark"] .empty,:root[data-theme="dark"] .region-pill,:root[data-theme="dark"] .enemy-info,:root[data-theme="dark"] .battle,:root[data-theme="dark"] .log,:root[data-theme="dark"] .dex-entry,:root[data-theme="dark"] .gym-card,:root[data-theme="dark"] .box-dedupe-setting,:root[data-theme="dark"] .delete-preview,:root[data-theme="dark"] .gym-cutscene-card,:root[data-theme="dark"] .box-pagination,:root[data-theme="dark"] .boxes-toolbar{background-color:#111!important;background-image:none!important;color:#f2f2f2!important;border-color:#303030!important}
-:root[data-theme="dark"] .top{background:#0d0d0d!important}
-:root[data-theme="dark"] .nav{background:#111!important;color:#c8c8c8!important;border-color:#222!important}
-:root[data-theme="dark"] .nav.active{background:#242424!important;color:#fff!important;border-color:#444!important}
-:root[data-theme="dark"] .input,:root[data-theme="dark"] input,:root[data-theme="dark"] select,:root[data-theme="dark"] textarea{background:#191919!important;background-color:#191919!important;color:#f2f2f2!important;border-color:#383838!important;color-scheme:dark}
-:root[data-theme="dark"] .battle{background:linear-gradient(180deg,#171717 0%,#202020 48%,#151515 48%,#090909 100%)!important;border:1px solid #333!important;box-shadow:none!important}
-:root[data-theme="dark"] .battle:before{background:linear-gradient(180deg,#252525,#181818)!important;opacity:.45}
-:root[data-theme="dark"] .battle:after{background:repeating-linear-gradient(90deg,#161616 0 6px,#202020 6px 12px)!important;border-color:#333!important}
-:root[data-theme="dark"] #page-adventure .panel,:root[data-theme="dark"] #page-adventure .battle,:root[data-theme="dark"] #page-adventure .enemy-info,:root[data-theme="dark"] #page-adventure .battle-footer,:root[data-theme="dark"] #page-adventure .battle-head{background-color:#111!important;color:#f2f2f2!important}
-:root[data-theme="dark"] #page-adventure .battle{background:linear-gradient(180deg,#171717 0%,#202020 48%,#151515 48%,#090909 100%)!important}
-:root[data-theme="dark"] #page-adventure #battle-team,:root[data-theme="dark"] #page-adventure .battle-ally,:root[data-theme="dark"] #page-adventure .battle-ally small{background:transparent!important;background-image:none!important;color:#f2f2f2!important;border:0!important}
-:root[data-theme="dark"] .gym-trainer strong{background:transparent!important;color:#f2f2f2!important;border:0!important;box-shadow:none!important;padding:0!important}
-:root[data-theme="dark"] .tag,:root[data-theme="dark"] .stage,:root[data-theme="dark"] .status,:root[data-theme="dark"] .shop-cost,:root[data-theme="dark"] .region-pill{background:transparent!important;color:var(--text)!important;border:0!important;box-shadow:none!important}
-:root[data-theme="dark"] .btn,:root[data-theme="dark"] .tiny,:root[data-theme="dark"] .alt{color:#f5f5f5!important}
-:root[data-theme="dark"] .send-team{color:#fff!important}
-:root[data-theme="dark"] #pz-auth-card{background:#111!important;color:#f2f2f2!important;border-color:#333!important}
-:root[data-theme="dark"] .gym-trainer{position:absolute!important;left:10px!important;top:50%!important;transform:translateY(-50%)!important;height:150px!important;z-index:4!important}
-:root[data-theme="dark"] .enemy{position:relative!important}
-</style><style id="pokezone-stability-and-gym-layout-fixes">
+</style><style id="pokespawn-final-theme-boxes">.tag,.stage,.status,.shop-cost,.region-pill,.gym-trainer strong{background:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding-left:0!important;padding-right:0!important}</style><style id="pokezone-stability-and-gym-layout-fixes">
 #page-adventure .battle .enemy{position:relative!important;isolation:isolate!important}
 #page-adventure .battle .gym-trainer{position:absolute!important;left:clamp(4px,2vw,22px)!important;bottom:0!important;top:auto!important;z-index:8!important;width:clamp(76px,8vw,104px)!important;height:auto!important;min-height:0!important;flex:none!important;display:flex!important;justify-content:flex-end!important;align-items:center!important;gap:3px!important;transform:none!important;background:transparent!important;background-image:none!important;border:0!important;outline:0!important;box-shadow:none!important;pointer-events:none!important}
 #page-adventure .battle .gym-trainer[hidden]{display:none!important}
@@ -826,42 +804,6 @@ body{background-image:none!important;background-color:var(--bg)!important}
 :root[data-theme="light"] .modal-box p{color:#607086!important}
 :root[data-theme="light"] #capture-types label{background:#f1f5f9!important;color:#1d2b3d!important;border-color:#cbd5e1!important}
 :root[data-theme="light"] .footer{color:#607086!important}
-</style><style id="pokezone-theme-dark">
-:root[data-theme="dark"]{
- color-scheme:dark;
- --bg:#101722;--panel:#1b2635;--panel2:#243246;--line:#394b62;
- --text:#e8eef7;--muted:#a9b8ca;--yellow:#f3c969;--green:#78d6a0;
- --blue:#83b9ee;--red:#ff8585;--purple:#c2a1f0;
- --pz-ink:#e8eef7;--pz-frame:#435a72;--pz-cream:#243246;--pz-shadow:#080e16;
-}
-:root[data-theme="dark"] body{background:#101722!important;color:var(--text)!important}
-:root[data-theme="dark"] .top{background:#172333!important;border-color:#465b73!important;color:#f4f7fb!important;box-shadow:0 4px 0 #0a111b,0 8px 18px #0006!important}
-:root[data-theme="dark"] .layout,:root[data-theme="dark"] main{color:var(--text)}
-:root[data-theme="dark"] .panel,:root[data-theme="dark"] .stat,:root[data-theme="dark"] .card,:root[data-theme="dark"] .side-note,:root[data-theme="dark"] .setting-card,:root[data-theme="dark"] .modal-box,:root[data-theme="dark"] .gym-cutscene-card,:root[data-theme="dark"] .shop-item,:root[data-theme="dark"] .mon,:root[data-theme="dark"] .region-card,:root[data-theme="dark"] .dex-card{
- background:#1b2635!important;color:#e8eef7!important;border-color:#394b62!important;box-shadow:0 3px 12px #0003!important
-}
-:root[data-theme="dark"] .panel p,:root[data-theme="dark"] .muted,:root[data-theme="dark"] small,:root[data-theme="dark"] .setting-card .muted{color:#a9b8ca}
-:root[data-theme="dark"] button,:root[data-theme="dark"] .nav{color:#e8eef7}
-:root[data-theme="dark"] .nav{background:#1b2635;border-color:#394b62}
-:root[data-theme="dark"] .nav.active,:root[data-theme="dark"] .nav[aria-current="page"]{background:#344a63!important;color:#fff!important}
-:root[data-theme="dark"] input,:root[data-theme="dark"] select,:root[data-theme="dark"] textarea,:root[data-theme="dark"] .input{
- background:#111c2a!important;color:#edf3fb!important;border-color:#465b73!important
-}
-:root[data-theme="dark"] input::placeholder,:root[data-theme="dark"] textarea::placeholder{color:#94a6bb!important}
-:root[data-theme="dark"] .resource,:root[data-theme="dark"] .language-picker{background:#243246!important;color:#e8eef7!important;border-color:#465b73!important;box-shadow:none!important}
-:root[data-theme="dark"] .resource span{color:#e8eef7!important}
-:root[data-theme="dark"] .tag,:root[data-theme="dark"] .tiny{background:#2b3c52!important;color:#edf3fb!important;border-color:#52677f!important}
-:root[data-theme="dark"] .footer{color:#a9b8ca}
-:root[data-theme="dark"] .modal{background:#050a12cc!important}
-:root[data-theme="dark"] .battle,:root[data-theme="dark"] .battlefield,:root[data-theme="dark"] .battle-stage{background-color:#172536!important}
-:root[data-theme="dark"] .gym-cutscene{background:#050a12e8!important}
-:root[data-theme="dark"] .empty{color:#a9b8ca!important}
-:root[data-theme="dark"] hr,:root[data-theme="dark"] .divider{border-color:#394b62!important}
-
-:root[data-theme="dark"] .enemy-info{background:#1b2635!important;color:#e8eef7!important;border-color:#52677f!important;box-shadow:0 4px 0 #0a111b!important}
-:root[data-theme="dark"] .enemy-info small{color:#a9b8ca!important}
-:root[data-theme="dark"] .battle-head h3,:root[data-theme="dark"] .battle-head .stage{color:#edf3fb!important;text-shadow:0 1px #101722!important}
-:root[data-theme="dark"] .battle-footer .status{color:#edf3fb!important;text-shadow:0 1px #101722!important}
 </style></head>
 <body><style>
 #pz-auth-gate{position:fixed;inset:0;z-index:99999;background:rgba(5,10,18,.97);display:flex;align-items:center;justify-content:center;padding:20px;font-family:Inter,system-ui,sans-serif}
@@ -892,7 +834,7 @@ body{background-image:none!important;background-color:var(--bg)!important}
 <section class="section" id="page-gym"><div class="panel"><h3> Gyms and League</h3><p class="muted" style="font-size:11px">Prove your team’s strength and earn badges to progress.</p><div id="gym-list" class="cards"></div></div></section>
 <section class="section" id="page-shop"><div class="panel"><h3> Pokémon Shop</h3><p class="muted" style="font-size:11px">Regular Poké Balls are unlimited and free. Buy permanent upgrades to increase your rewards.</p><h4 style="margin:18px 0 8px">Poké Ball Upgrades</h4><p class="muted" style="font-size:11px">One-time purchases. Only the highest purchased ball tier is used automatically.</p><div id="pokeball-shop-list" class="cards"></div><h4 style="margin:18px 0 8px">Permanent upgrades</h4><div id="shop-list" class="cards"></div></div></section>
 <section class="section" id="page-research"><div class="panel"><h3> Research Center</h3><p class="muted" style="font-size:11px">Spend Research Points to improve your adventure and discover secrets.</p><div id="research-list" class="cards"></div></div></section>
-<section class="section" id="page-settings"><div class="panel"><h3>⚙ Settings</h3><p class="muted" style="font-size:11px">Customize PokéSpawn Idle. Your preferences are saved to your account.</p><div class="settings-grid"><label class="setting-card"><strong>Appearance</strong><span class="muted">Choose the color theme used across the entire game.</span><select class="input" id="theme-select" onchange="setTheme()" aria-label="Appearance theme"><option value="light">Light mode</option><option value="dark">Dark mode</option></select></label><div class="setting-card"><strong>Cloud save</strong><span class="muted">Appearance, language and gameplay settings are stored with your account save.</span><span id="settings-save-status" class="tag">Synced with game save</span></div></div></div></section>
+<section class="section" id="page-settings"><div class="panel"><h3>⚙ Settings</h3><p class="muted" style="font-size:11px">Customize PokéSpawn Idle. Your preferences are saved to your account.</p><div class="settings-grid"><div class="setting-card"><strong>Cloud save</strong><span class="muted">Language and gameplay settings are stored with your account save.</span><span id="settings-save-status" class="tag">Synced with game save</span></div></div></div></section>
 <div class="footer">PokéSpawn Idle is an unofficial fan-made project. Pokémon and all related characters belong to their respective owners. Pokémon sprites and data are provided through PokéAPI.</div>
 </main></div>
 <div id="pz-notifications" class="pz-notifications" aria-live="polite"></div><div class="modal" id="box-delete-modal"><div class="modal-box"><h2 class="pixel" id="delete-title">DELETE POKÉMON?</h2><p id="delete-description">This Pokémon will be permanently removed from your boxes.</p><div id="delete-preview"></div><div class="replace-options"><button class="tiny" onclick="cancelBoxDelete()">Cancel</button><button class="tiny danger" onclick="confirmBoxDelete()">Delete permanently</button></div></div></div><div class="modal" id="team-replace-modal"><div class="modal-box team-replace-box"><h2 class="pixel" id="replace-title">REPLACE TEAM MEMBER</h2><p id="replace-description">Choose which Pokémon to replace.</p><div id="replace-options" class="replace-options"></div><button class="tiny" type="button" onclick="cancelTeamReplace()">Cancel</button></div></div><div class="modal" id="starter-modal"><div class="modal-box"><h2 class="pixel">ELIGE TU STARTER</h2><p>Welcome to PokéSpawn Idle! Choose your first partner Pokémon from any region.</p><div class="tabs" id="starter-regions"></div><div class="starter-grid" id="starter-grid"><div class="empty">Loading starter Pokémon...</div></div></div></div>
@@ -1153,19 +1095,7 @@ function applyLanguage(){
   window.pzEnglishObserver.observe(document.body,{subtree:true,childList:true,characterData:true});
  }
 }
-function applyTheme(){
- state.settings=state.settings&&typeof state.settings==='object'?state.settings:{};
- const theme=state.settings.theme==='dark'?'dark':'light';
- document.documentElement.dataset.theme=theme;
- const select=$('theme-select');if(select)select.value=theme;
-}
-function setTheme(){
- state.settings=state.settings||{};
- const select=$('theme-select');
- state.settings.theme=select&&select.value==='dark'?'dark':'light';
- state.settings.appearanceModeChosen=true;
- applyTheme();save();
-}
+function applyTheme(){document.documentElement.dataset.theme='light';}
 function setLanguage(){state.language='en';applyLanguage();save()}
 function render(){renderBattleTeam();$('coins').textContent=Math.floor(state.coins).toLocaleString('es-ES');$('research').textContent=state.research;$('stat-caught').textContent=owned().length;$('stat-level').textContent=totalLevel();$('stat-kills').textContent=state.kills;$('region-label').textContent=' '+regions[state.region].name+' · Area '+(state.kills+1);$('team-count').textContent='('+state.team.length+'/6)';
 $('mini-team').innerHTML=state.team.length?state.team.map(m=>'<div class="mon"><img src="'+sprite(m.id,m.shiny)+'"><div class="mon-info"><strong>'+(m.shiny?' ':'')+m.name+'</strong><small>Nivel '+m.level+' · '+(m.moves[0]||'')+'</small><div class="bar"><i style="width:'+Math.min(100,(m.xp||0)/xpNeed(m.level)*100)+'%"></i></div></div></div>').join(''):'<div class="empty">Elige tu primer Pokémon.</div>';
