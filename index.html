@@ -1370,4 +1370,26 @@ button.send-team:hover,button.send-team:focus-visible {
   box-shadow:none!important;
 }
 </style>
+
+<style id="pokespawn-sidebar-all-labels-transparent">
+/* All sidebar button label elements stay transparent; only the button itself carries the red stripes. */
+.side button *,
+.side button *::before,
+.side button *::after,
+.side button::before,
+.side button::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+.side button {
+  background: repeating-linear-gradient(135deg,#e52b43 0 10px,#c91631 10px 20px) !important;
+  background-color: #c91631 !important;
+  background-image: repeating-linear-gradient(135deg,#e52b43 0 10px,#c91631 10px 20px) !important;
+}
+</style>
 </body></html>
