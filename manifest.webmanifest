@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "PokéSpawn Idle",
+  "short_name": "PokéSpawn",
+  "description": "A Pokémon idle adventure game.",
+  "lang": "en",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#101a29",
+  "theme_color": "#101a29",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    { "src": "/icons/pokespawn-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icons/pokespawn-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
