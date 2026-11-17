@@ -1312,4 +1312,36 @@ h1,h2,h3,h4,h5,h6,button,.btn,.tiny,.tab,.nav,.dex-region-tab,
 .panel,.card,.stat,.side-note,.mon,.starter,.empty,.setting-card,
 .modal-box,.hero,.enemy-info,.box-mon,.dex-entry{border-radius:0!important}
 button,.btn,.tiny,.tab,.nav,.dex-region-tab{box-shadow:2px 2px 0 rgba(35,54,61,.28)}
-</style></body></html>
+</style><style id="pokespawn-universal-red-striped-buttons">
+/* Every button uses the red striped arcade treatment; send-team is the only green action. */
+button {
+  color:#fff!important;
+  background:repeating-linear-gradient(135deg,#e52b43 0 10px,#c91631 10px 20px)!important;
+  background-color:#c91631!important;
+  border:2px solid #a80f28!important;
+  border-radius:0!important;
+  box-shadow:2px 3px 0 #8f1025!important;
+  font-weight:800!important;
+  text-shadow:1px 1px 0 rgba(80,0,0,.2)!important;
+}
+button:hover,button:focus-visible {
+  color:#fff!important;
+  background:repeating-linear-gradient(135deg,#ef4055 0 10px,#d91d39 10px 20px)!important;
+  border-color:#a80f28!important;box-shadow:2px 3px 0 #8f1025!important;
+  filter:none!important;transform:none!important;
+}
+button:disabled {opacity:.5!important;filter:grayscale(.25)!important}
+button.send-team,.send-team {
+  color:#fff!important;
+  background:repeating-linear-gradient(135deg,#35b86b 0 10px,#218f4e 10px 20px)!important;
+  background-color:#218f4e!important;border:2px solid #176d3b!important;
+  box-shadow:2px 3px 0 #145b33!important;
+  text-shadow:1px 1px 0 rgba(0,55,20,.2)!important;
+}
+button.send-team:hover,button.send-team:focus-visible {
+  background:repeating-linear-gradient(135deg,#42c879 0 10px,#279f59 10px 20px)!important;
+  border-color:#176d3b!important;box-shadow:2px 3px 0 #145b33!important;
+  filter:none!important;transform:none!important;
+}
+</style>
+</body></html>
