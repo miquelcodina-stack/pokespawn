@@ -32,7 +32,7 @@ alter table public.friend_requests enable row level security;
 alter table public.player_friends enable row level security;
 
 drop policy if exists "profiles are readable by authenticated players" on public.player_profiles;
-create policy "profiles are readable by authenticated players" on public.player_profiles for select to authenticated using (true);
+create policy "players can read their own profile" on public.player_profiles for select to authenticated using (auth.uid() = user_id);
 drop policy if exists "players can read their own friend requests" on public.friend_requests;
 create policy "players can read their own friend requests" on public.friend_requests for select to authenticated using (auth.uid() = sender_id or auth.uid() = receiver_id);
 drop policy if exists "players can read their friendships" on public.player_friends;
