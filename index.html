@@ -1392,4 +1392,26 @@ button.send-team:hover,button.send-team:focus-visible {
   background-image: repeating-linear-gradient(135deg,#e52b43 0 10px,#c91631 10px 20px) !important;
 }
 </style>
+
+<style id="pokespawn-sidebar-nav-label-no-backplate">
+/* The sidebar text itself must have no white plate; the red stripes belong to the full nav button. */
+:root[data-theme="light"] .side button .nav-label,
+:root[data-theme="dark"] .side button .nav-label,
+:root[data-theme="light"] .side button span,
+:root[data-theme="dark"] .side button span {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  text-shadow: 1px 1px 0 rgba(80,0,0,.2) !important;
+}
+:root[data-theme="light"] .side button,
+:root[data-theme="dark"] .side button {
+  background: repeating-linear-gradient(135deg,#e52b43 0 10px,#c91631 10px 20px) !important;
+  background-color: #c91631 !important;
+  background-image: repeating-linear-gradient(135deg,#e52b43 0 10px,#c91631 10px 20px) !important;
+  color: #ffffff !important;
+}
+</style>
 </body></html>
