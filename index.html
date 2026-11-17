@@ -1414,4 +1414,28 @@ button.send-team:hover,button.send-team:focus-visible {
   color: #ffffff !important;
 }
 </style>
+
+<style id="pokespawn-universal-text-cleanup">
+/* Text stays clean: no underline, highlight plate, or decorative fill behind lettering.
+   Button and panel surfaces are intentionally left untouched. */
+:where(h1,h2,h3,h4,h5,h6,p,span,a,label,small,strong,b,em,i,u,s,del,ins,
+       li,dt,dd,th,td,caption,figcaption,legend,summary,blockquote,
+       code,kbd,samp,mark,.nav-label,.highlight,.highlighted,.text-highlight,
+       [class*="highlight"],[class*="badge"],[class*="tag"]) {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+:where(mark,.highlight,.highlighted,.text-highlight,[class*="highlight"]) {
+  outline: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+</style>
+
 </body></html>
