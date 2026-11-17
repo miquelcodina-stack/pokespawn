@@ -1249,17 +1249,16 @@ setInterval(()=>{attackTick();if(Math.random()<.05)save()},200);setInterval(save
 window.changeBoxPage=changeBoxPage;window.buyPokeball=buyPokeball;applyLanguage();window.moveMon=moveMon;window.askDeleteBoxMon=askDeleteBoxMon;window.cancelBoxDelete=cancelBoxDelete;window.confirmBoxDelete=confirmBoxDelete;window.chooseTeamReplacement=chooseTeamReplacement;window.cancelTeamReplace=cancelTeamReplace;window.unlockRegion=unlockRegion;window.buyUpgrade=buyUpgrade;window.buyResearch=buyResearch;window.challengeGym=challengeGym;window.beginGymBattle=beginGymBattle;window.closeGymCutscene=closeGymCutscene;
 })();
 </script><!-- PokéZone starter modal guard 2026-11-16 --><!-- PokéZone rare spawns, capture odds and throw animation 2026-11-16 --><!-- PokéZone duplicate JS declaration fix, party replacement and visible pixel arena --><!-- PokéZone independent cooldown per individual move and visible ally attacks --><!-- PokéZone: fixed navigation pixel icons and boxes paginated 30 per page --> <!-- PokéZone compact responsive UI, searchable storage, English default with Spanish option --> <div class="gym-cutscene" id="gym-cutscene" role="dialog" aria-modal="true" aria-labelledby="gym-cutscene-title"><div class="gym-cutscene-card"><div class="gym-cutscene-stripes"></div><img id="gym-cutscene-sprite" alt="Gym trainer"><div class="gym-cutscene-copy"><span class="gym-cutscene-kicker">DESAFÍO DE GIMNASIO</span><h2 id="gym-cutscene-title">¡Un nuevo desafío!</h2><p id="gym-cutscene-quote"></p><small class="gym-sprite-credit">Trainer sprite art credits: <a href="https://play.pokemonshowdown.com/sprites/trainers/credits.txt" target="_blank" rel="noopener">Pokémon Showdown contributors</a>.</small><div class="gym-cutscene-actions"><button type="button" class="gym-cutscene-cancel" onclick="closeGymCutscene()">Ahora no</button><button type="button" class="gym-cutscene-start" onclick="beginGymBattle()">¡A luchar!</button></div></div></div></div><style id="pokezone-all-buttons-hover">
-/* One consistent hover style for every interactive button across the whole game. */
-button:not(:disabled):hover,
-[role="button"]:not([aria-disabled="true"]):hover{
+/* Consistent red hover for game controls, excluding sidebar navigation. */
+button:not(:disabled):not(.side button):hover,
+[role="button"]:not([aria-disabled="true"]):not(.side [role="button"]):hover{
  color:#fff!important;
  background:repeating-linear-gradient(135deg,#e52b43 0 11px,#c91631 11px 22px)!important;
  border-color:#b20f29!important;
  box-shadow:0 3px 0 #a80f28,0 6px 13px rgba(170,15,40,.14)!important;
- filter:none!important;
- transform:none!important;
- outline:none!important;
+ filter:none!important;transform:none!important;outline:none!important;
 }
+.side button:hover{filter:none!important;transform:none!important}
 button:disabled:hover{filter:none!important;transform:none!important}
 </style><style id="pokezone-transparent-section-and-team-text">
 /* Remove decorative text backplates and the card fill behind Adventure team members. */
@@ -1301,4 +1300,16 @@ button:disabled:hover{filter:none!important;transform:none!important}
  text-shadow:none!important;
 }
 </style>
-</body></html>
+<style id="pokezone-global-pixel-art-rendering">
+/* Global pixel-art presentation, including UI added dynamically in future. */
+img,canvas,svg{image-rendering:pixelated}
+*{border-radius:0!important}
+button,select,input,textarea,[role="button"]{border-radius:0!important}
+h1,h2,h3,h4,h5,h6,button,.btn,.tiny,.tab,.nav,.dex-region-tab,
+.stat b,.card h4,.starter strong,.modal-box h2{
+ font-family:'VT323',monospace!important;letter-spacing:.025em!important;
+}
+.panel,.card,.stat,.side-note,.mon,.starter,.empty,.setting-card,
+.modal-box,.hero,.enemy-info,.box-mon,.dex-entry{border-radius:0!important}
+button,.btn,.tiny,.tab,.nav,.dex-region-tab{box-shadow:2px 2px 0 rgba(35,54,61,.28)}
+</style></body></html>
