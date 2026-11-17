@@ -804,7 +804,26 @@ body{background-image:none!important;background-color:var(--bg)!important}
 :root[data-theme="light"] .modal-box p{color:#607086!important}
 :root[data-theme="light"] #capture-types label{background:#f1f5f9!important;color:#1d2b3d!important;border-color:#cbd5e1!important}
 :root[data-theme="light"] .footer{color:#607086!important}
-</style></head>
+</style><style id="pokezone-smaller-wild-pokemon-and-transparent-text">
+#page-adventure .battle .enemy #enemy-sprite{
+ width:clamp(100px,11vw,140px)!important;
+ height:clamp(100px,11vw,140px)!important;
+ flex:0 1 auto!important;
+}
+@media(max-width:760px){
+ #page-adventure .battle .enemy #enemy-sprite{
+  width:clamp(92px,30vw,120px)!important;
+  height:clamp(92px,30vw,120px)!important;
+ }
+}
+body :is(h1,h2,h3,h4,h5,h6,p,span,strong,small,label,a,li,em,b,i,dt,dd,legend,figcaption){
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+ box-shadow:none!important;
+}
+</style>
+</head>
 <body><style>
 #pz-auth-gate{position:fixed;inset:0;z-index:99999;background:rgba(5,10,18,.97);display:flex;align-items:center;justify-content:center;padding:20px;font-family:Inter,system-ui,sans-serif}
 #pz-auth-card{width:min(440px,100%);background:#151e2c;border:2px solid #2b3b50;padding:28px;box-shadow:8px 8px 0 #070b12}
