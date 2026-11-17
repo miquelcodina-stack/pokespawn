@@ -1438,4 +1438,35 @@ button.send-team:hover,button.send-team:focus-visible {
 }
 </style>
 
+
+<style id="pokespawn-aside-button-text-no-fill">
+/* Remove every text-only plate inside sidebar navigation buttons; preserve the red button surface and pixel icons. */
+:root .layout > aside.side button.nav > *,
+:root .layout > aside.side button.nav .nav-label,
+:root .layout > aside.side button.nav span,
+:root .layout > aside.side button.nav strong,
+:root .layout > aside.side button.nav b,
+:root .layout > aside.side button.nav small,
+:root .layout > aside.side button.nav em,
+:root .layout > aside.side button.nav label {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+  -webkit-text-decoration: none !important;
+  border-color: transparent !important;
+  outline: 0 !important;
+}
+:root .layout > aside.side button.nav::before,
+:root .layout > aside.side button.nav::after,
+:root .layout > aside.side button.nav *::before,
+:root .layout > aside.side button.nav *::after {
+  background: transparent !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+</style>
+
 </body></html>
